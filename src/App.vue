@@ -126,7 +126,8 @@ export default defineComponent({
         },
         startTimer(): void {
             this.timerInterval = setInterval(() => {
-                this.timerInstance.minus(
+                console.debug("Timer tick");
+                this.timerInstance = this.timerInstance.minus(
                     Duration.fromObject({ milliseconds: 100 })
                 );
                 if (this.timerInstance.as("milliseconds") <= 0) {
