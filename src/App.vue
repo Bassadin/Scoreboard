@@ -3,61 +3,106 @@
         <div class="site-wrap">
             <div class="points-wrap">
                 <div class="points points__left">
-                    {{ pointsLeft.toString().padStart(2, '0') }}
+                    {{ pointsLeft.toString().padStart(2, "0") }}
                 </div>
-                <div class="points-divider"></div>
+                <div class="points-divider" />
                 <div class="points points__right">
-                    {{ pointsRight.toString().padStart(2, '0') }}
+                    {{ pointsRight.toString().padStart(2, "0") }}
                 </div>
             </div>
             <div id="round-timer">
-                {{ momentTimerInstance.format('mm:ss', { trim: false }) }}
+                {{ timerInstance.toFormat("mm:ss") }}
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import moment from 'moment';
-import momentDurationFormatSetup from 'moment-duration-format';
+import { defineComponent } from "vue";
 
-document.title = 'Scoreboard';
+import airhornAudioClipFile from "@/assets/airhorn.wav";
+import { Duration } from "luxon";
+
+document.title = "Scoreboard";
 
 enum Team {
     LEFT = 1,
-    RIGHT = 2
+    RIGHT = 2,
 }
 
-const keyToTimerDictionary = {
-    '1': 5,
-    '2': 10,
-    '3': 15,
-    '4': 20,
-    '5': 30,
-    '6': 40,
-    '7': 50,
-    '8': 60
+const keyToTimerDictionary: any = {
+    "1": 5,
+    "2": 10,
+    "3": 15,
+    "4": 20,
+    "5": 30,
+    "6": 40,
+    "7": 50,
+    "8": 60,
 };
 
 export default defineComponent({
-    name: 'App',
     data: () => ({
         pointsLeft: 0 as number,
         pointsRight: 0 as number,
-        momentTimerInstance: moment.duration(15, 'minutes'),
-        timerInterval: 0 as number,
+        timerInstance: Duration.fromObject({ minutes: 15 }),
+        timerInterval: null as any,
         isTimerRunning: false as boolean,
-        Team,
         keyToTimerDictionary,
-        airhornAudioClip: new Audio(require('@/assets/airhorn.wav')),
+        airhornAudioClip: new Audio(airhornAudioClipFile),
         keyAlreadyHeldDown: false,
-        canPointsBeChanged: true
+        canPointsBeChanged: true,
     }),
-    computed: {
-        timerString: function(): string {
-            return 'test';
-        }
+    mounted() {
+        document.addEventListener("keydown", (event) => {
+            if (
+                !this.canPointsBeChanged &&
+                (event.key == "q" || event.key == "e")
+            ) {
+                return;
+            }
+            if (this.keyAlreadyHeldDown) {
+                return;
+            }
+            this.keyAlreadyHeldDown = true;
+
+            // Delay for double clicking buttons
+            this.canPointsBeChanged = false;
+            setTimeout(() => {
+                this.canPointsBeChanged = true;
+            }, 1000);
+
+            // transform the above to switch case
+            switch (event.key) {
+                // Stop clock
+                case " ":
+                    this.toggleTimer();
+                    break;
+                // LEFT TEAM
+                case "q":
+                    this.changePoints(1, Team.LEFT);
+                    break;
+                case "a":
+                    this.changePoints(-1, Team.LEFT);
+                    break;
+                // RIGHT TEAM
+                case "e":
+                    this.changePoints(1, Team.RIGHT);
+                    break;
+                case "d":
+                    this.changePoints(-1, Team.RIGHT);
+                    break;
+            }
+
+            if (Object.keys(this.keyToTimerDictionary).includes(event.key)) {
+                this.timerInstance = Duration.fromObject({
+                    minutes: this.keyToTimerDictionary[event.key],
+                });
+            }
+        });
+        document.addEventListener("keyup", () => {
+            this.keyAlreadyHeldDown = false;
+        });
     },
     methods: {
         changePoints(pointsAmount: number, team: Team): void {
@@ -75,14 +120,16 @@ export default defineComponent({
                     }
                     break;
                 default:
-                    Error('Invalid team string. Must be left or right');
+                    Error("Invalid team string. Must be left or right");
                     break;
             }
         },
         startTimer(): void {
             this.timerInterval = setInterval(() => {
-                this.momentTimerInstance.subtract(moment.duration(100, 'milliseconds'));
-                if (this.momentTimerInstance.asMilliseconds() <= 0) {
+                this.timerInstance.minus(
+                    Duration.fromObject({ milliseconds: 100 })
+                );
+                if (this.timerInstance.as("milliseconds") <= 0) {
                     this.pauseTimer();
 
                     this.airhornAudioClip.play();
@@ -93,64 +140,15 @@ export default defineComponent({
             clearInterval(this.timerInterval);
         },
         toggleTimer(): void {
+            console.debug("Toggling timer");
             if (this.isTimerRunning) {
                 this.pauseTimer();
-            } else if (this.momentTimerInstance.asMilliseconds() > 0) {
+            } else if (this.timerInstance.as("milliseconds") > 0) {
                 this.startTimer();
             }
             this.isTimerRunning = !this.isTimerRunning;
-        }
+        },
     },
-    mounted() {
-        momentDurationFormatSetup(moment);
-        document.addEventListener('keydown', event => {
-            if (!this.canPointsBeChanged && (event.key == 'q' || event.key == 'e')) {
-                return;
-            }
-            if (this.keyAlreadyHeldDown) {
-                return;
-            }
-            this.keyAlreadyHeldDown = true;
-
-            // Delay for double clicking buttons
-            this.canPointsBeChanged = false;
-            setTimeout(() => {
-                this.canPointsBeChanged = true;
-            }, 1000);
-
-            /* Uhr Stop */
-            if (event.key == ' ') {
-                this.toggleTimer();
-            }
-
-            //LINKES TEAM
-            /* Keypress handler Punkte left erhöhen */
-            if (event.key == 'q') {
-                this.changePoints(1, Team.LEFT);
-            }
-            /* Keypress handler Punkte left erniedrigen */
-            if (event.key == 'a') {
-                this.changePoints(-1, Team.LEFT);
-            }
-
-            //RECHTES TEAM
-            /* Keypress handler Punkte left erhöhen */
-            if (event.key == 'e') {
-                this.changePoints(1, Team.RIGHT);
-            }
-            /* Keypress handler Punkte left erniedrigen */
-            if (event.key == 'd') {
-                this.changePoints(-1, Team.RIGHT);
-            }
-
-            if (Object.keys(this.keyToTimerDictionary).includes(event.key)) {
-                this.momentTimerInstance = moment.duration(this.keyToTimerDictionary[event.key], 'minutes');
-            }
-        });
-        document.addEventListener('keyup', () => {
-            this.keyAlreadyHeldDown = false;
-        });
-    }
 });
 </script>
 
@@ -216,7 +214,8 @@ html {
 /* Timer */
 #round-timer {
     font-size: 23vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     text-align: center;
 }
 </style>
