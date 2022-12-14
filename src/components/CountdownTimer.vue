@@ -23,7 +23,7 @@ const keyToTimerDictionary: any = {
 };
 const airhornAudioClip = new Audio(airhornAudioClipFile);
 
-let timerInstance = Duration.fromObject({ minutes: 15 });
+const timerInstance = ref(Duration.fromObject({ minutes: 15 }));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let timerTickInterval: any = null;
@@ -32,17 +32,14 @@ const isTimerRunning = ref(false);
 
 onMounted(() => {
     document.addEventListener("keydown", (event) => {
-        // transform the above to switch case
-        switch (event.key) {
-            // Stop clock
-            case " ":
-                toggleTimer();
-                break;
+        // Stop clock
+        if (event.key == " ") {
+            toggleTimer();
         }
 
         // Set timer to a specific duration value according to key pressed (1-8)
         if (Object.keys(keyToTimerDictionary).includes(event.key)) {
-            timerInstance = Duration.fromObject({
+            timerInstance.value = Duration.fromObject({
                 minutes: keyToTimerDictionary[event.key],
             });
         }
@@ -52,10 +49,10 @@ onMounted(() => {
 function startTimer(): void {
     timerTickInterval = setInterval(() => {
         console.debug("Timer tick");
-        timerInstance = timerInstance.minus(
+        timerInstance.value = timerInstance.value.minus(
             Duration.fromObject({ milliseconds: 100 })
         );
-        if (timerInstance.as("milliseconds") <= 0) {
+        if (timerInstance.value.as("milliseconds") <= 0) {
             pauseTimer();
 
             airhornAudioClip.play();
@@ -69,7 +66,7 @@ function toggleTimer(): void {
     console.debug("Toggling timer");
     if (isTimerRunning.value) {
         pauseTimer();
-    } else if (timerInstance.as("milliseconds") > 0) {
+    } else if (timerInstance.value.as("milliseconds") > 0) {
         startTimer();
     }
     isTimerRunning.value = !isTimerRunning.value;
