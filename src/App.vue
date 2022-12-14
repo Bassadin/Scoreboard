@@ -43,10 +43,11 @@ onMounted(() => {
         keyAlreadyHeldDown = true;
         // Delay for double clicking buttons
         canPointsBeChanged = false;
+
         setTimeout(() => {
             canPointsBeChanged = true;
         }, 1000);
-        // transform the above to switch case
+
         switch (event.key) {
             // LEFT TEAM
             case "q":
