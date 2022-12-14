@@ -82,9 +82,6 @@ function changePoints(pointsAmount: number, team: Team): void {
                 pointsRight.value = 0;
             }
             break;
-        default:
-            Error("Invalid team string. Must be left or right");
-            break;
     }
 }
 </script>
