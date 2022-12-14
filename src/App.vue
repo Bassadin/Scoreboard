@@ -1,17 +1,15 @@
 <template>
-    <div id="app">
-        <div class="site-wrap">
-            <div class="points-wrap">
-                <div class="points points__left">
-                    {{ pointsLeft.toString().padStart(2, "0") }}
-                </div>
-                <div class="points-divider" />
-                <div class="points points__right">
-                    {{ pointsRight.toString().padStart(2, "0") }}
-                </div>
+    <div class="site-wrap">
+        <div class="points-wrap">
+            <div class="points points__left">
+                {{ pointsLeft.toString().padStart(2, "0") }}
             </div>
-            <CountdownTimer />
+            <div class="points-divider" />
+            <div class="points points__right">
+                {{ pointsRight.toString().padStart(2, "0") }}
+            </div>
         </div>
+        <CountdownTimer />
     </div>
 </template>
 
@@ -69,6 +67,7 @@ onMounted(() => {
         keyAlreadyHeldDown = false;
     });
 });
+
 function changePoints(pointsAmount: number, team: Team): void {
     switch (team) {
         case Team.LEFT:
@@ -88,15 +87,6 @@ function changePoints(pointsAmount: number, team: Team): void {
 </script>
 
 <style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
 /* Fonts */
 @font-face {
     font-family: SevenSegment;
