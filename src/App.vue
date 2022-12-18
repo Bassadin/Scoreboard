@@ -2,11 +2,11 @@
     <div class="site-wrap">
         <div class="points-wrap">
             <div class="points points__left">
-                {{ pointsLeft.toString().padStart(2, "0") }}
+                {{ paddedPointsString(pointsLeft) }}
             </div>
             <div class="points-divider" />
             <div class="points points__right">
-                {{ pointsRight.toString().padStart(2, "0") }}
+                {{ paddedPointsString(pointsRight) }}
             </div>
         </div>
         <CountdownTimer />
@@ -67,6 +67,10 @@ onMounted(() => {
         keyAlreadyHeldDown = false;
     });
 });
+
+function paddedPointsString(points: number): string {
+    return points.toString().padStart(2, "0");
+}
 
 function changePoints(pointsAmount: number, team: Team): void {
     switch (team) {
