@@ -4,8 +4,10 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc && vite build",
+        "tauri:dev": "tauri dev",
+        "tauri:build": "tauri build",
+        "vite:dev": "vite",
+        "vite:build": "vue-tsc && vite build",
         "preview": "vite preview",
         "eslint:scan": "eslint --ext .js,.vue,.ts src",
         "eslint:fix": "eslint --fix --ext .js,.vue,.ts src"
@@ -17,6 +19,7 @@
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "^1.2",
+        "@tauri-apps/cli": "^1.2.3",
         "@types/luxon": "^3.1",
         "@types/node": "^18.11",
         "@typescript-eslint/eslint-plugin": "^5.33",
