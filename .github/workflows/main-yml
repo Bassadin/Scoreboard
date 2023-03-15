@@ -1,0 +1,33 @@
+name: Build, Test and Deploy with FTP
+
+on: push
+
+jobs:
+    eslint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+              with:
+                  fetch-depth: 1
+            - name: yarn install
+              run: yarn install --frozen-lockfile
+            - name: Run ESLint
+              run: yarn run eslint
+    build:
+        name: Yarn build
+        runs-on: ubuntu-latest
+        needs:
+            - cypress-test
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@master
+              with:
+                  node-version: 18
+            - name: Yarn module install
+              run: yarn install --frozen-lockfile
+            - name: Yarn build
+              run: yarn run build
+            - uses: actions/upload-artifact@master
+              with:
+                  name: build-artifact
+                  path: dist/
