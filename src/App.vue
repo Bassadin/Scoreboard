@@ -14,10 +14,13 @@
 </template>
 
 <script setup lang="ts">
+// Components
 import CountdownTimer from "@/components/CountdownTimer.vue";
 import { onMounted, ref } from "vue";
 
-document.title = "Scoreboard";
+import { useTitle } from "@vueuse/core";
+
+useTitle("Scoreboard");
 
 enum Team {
     LEFT = 1,
@@ -90,7 +93,7 @@ function changePoints(pointsAmount: number, team: Team): void {
 }
 </script>
 
-<style>
+<style lang="less">
 /* Fonts */
 @font-face {
     font-family: SevenSegment;
