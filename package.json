@@ -11,11 +11,13 @@
         "preview": "vite preview",
         "prettier:format": "prettier --write .",
         "eslint:scan": "eslint --ext .js,.vue,.ts src",
-        "eslint:fix": "eslint --fix --ext .js,.vue,.ts src"
+        "eslint:fix": "eslint --fix --ext .js,.vue,.ts src",
+        "postinstall": "husky install"
     },
     "dependencies": {
         "@vueuse/core": "^10.5.0",
         "countdown": "^2.6",
+        "husky": "^8.0.3",
         "luxon": "^3.4.3",
         "vue": "^3.3.6"
     },
@@ -34,6 +36,7 @@
         "eslint-plugin-n": "^16.2.0",
         "eslint-plugin-promise": "^6.0",
         "eslint-plugin-vue": "^9.3",
+        "husky": "^8.0.0",
         "less": "^4.2.0",
         "sass": "^1.56",
         "typescript": "^5.2.2",
