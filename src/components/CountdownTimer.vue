@@ -50,7 +50,7 @@ function startTimer(): void {
     timerTickInterval = setInterval(() => {
         console.debug("Timer tick");
         timerInstance.value = timerInstance.value.minus(
-            Duration.fromObject({ milliseconds: 100 })
+            Duration.fromObject({ milliseconds: 100 }),
         );
         if (timerInstance.value.as("milliseconds") <= 0) {
             pauseTimer();
