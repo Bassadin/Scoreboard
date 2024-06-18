@@ -34,8 +34,10 @@
         "eslint-plugin-vue": "^9.21.1",
         "husky": "^9.0.11",
         "less": "^4.2.0",
+        "prettier": "^3.3.2",
         "sass": "^1.56",
         "typescript": "^5.2.2",
         "vite": "^5.1.7"
-    }
+    },
+    "packageManager": "yarn@4.3.0"
 }
