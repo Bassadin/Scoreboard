@@ -477,14 +477,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^3.1":
+"@types/luxon@npm:^3.4.2":
   version: 3.4.2
   resolution: "@types/luxon@npm:3.4.2"
   checksum: 10c0/d835467de3daf7e17ba78b50bb5a14efd94272439ca067990d71332a54b311544459c69623eddd243b511b28d70194c9591a9ee8cf9c038962c965f991affd7e
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.11.19":
+"@types/node@npm:^20.14.5":
   version: 20.14.5
   resolution: "@types/node@npm:20.14.5"
   dependencies:
@@ -532,7 +532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^7.0.2":
+"@typescript-eslint/eslint-plugin@npm:^7.13.1":
   version: 7.13.1
   resolution: "@typescript-eslint/eslint-plugin@npm:7.13.1"
   dependencies:
@@ -573,7 +573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^7.0.2":
+"@typescript-eslint/parser@npm:^7.13.1":
   version: 7.13.1
   resolution: "@typescript-eslint/parser@npm:7.13.1"
   dependencies:
@@ -755,7 +755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^5.0.4":
+"@vitejs/plugin-vue@npm:^5.0.5":
   version: 5.0.5
   resolution: "@vitejs/plugin-vue@npm:5.0.5"
   peerDependencies:
@@ -883,7 +883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^10.7.2":
+"@vueuse/core@npm:^10.11.0":
   version: 10.11.0
   resolution: "@vueuse/core@npm:10.11.0"
   dependencies:
@@ -1288,7 +1288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"countdown@npm:^2.6":
+"countdown@npm:^2.6.0":
   version: 2.6.0
   resolution: "countdown@npm:2.6.0"
   checksum: 10c0/34a03233a50d4b1a934ee43f50b7c2b4bd2d8b910d49763e04a30a72a5cc308babae86c4bdeb3418ad290c68772b3cffbde842cbafab8a7731a6ac1fd61244fe
@@ -1702,7 +1702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^9.0.0":
+"eslint-config-prettier@npm:^9.1.0":
   version: 9.1.0
   resolution: "eslint-config-prettier@npm:9.1.0"
   peerDependencies:
@@ -1713,7 +1713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-standard@npm:^17.0":
+"eslint-config-standard@npm:^17.1.0":
   version: 17.1.0
   resolution: "eslint-config-standard@npm:17.1.0"
   peerDependencies:
@@ -1761,7 +1761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.25":
+"eslint-plugin-import@npm:^2.29.1":
   version: 2.29.1
   resolution: "eslint-plugin-import@npm:2.29.1"
   dependencies:
@@ -1788,7 +1788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^16.2.0":
+"eslint-plugin-n@npm:^16.6.2":
   version: 16.6.2
   resolution: "eslint-plugin-n@npm:16.6.2"
   dependencies:
@@ -1809,7 +1809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:^6.0":
+"eslint-plugin-promise@npm:^6.2.0":
   version: 6.2.0
   resolution: "eslint-plugin-promise@npm:6.2.0"
   peerDependencies:
@@ -1818,7 +1818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:^9.21.1":
+"eslint-plugin-vue@npm:^9.26.0":
   version: 9.26.0
   resolution: "eslint-plugin-vue@npm:9.26.0"
   dependencies:
@@ -1853,7 +1853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.56":
+"eslint@npm:^8.57.0":
   version: 8.57.0
   resolution: "eslint@npm:8.57.0"
   dependencies:
@@ -3592,7 +3592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.56":
+"sass@npm:^1.77.6":
   version: 1.77.6
   resolution: "sass@npm:1.77.6"
   dependencies:
@@ -3616,29 +3616,29 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "scoreboard-remaster@workspace:."
   dependencies:
-    "@types/luxon": "npm:^3.1"
-    "@types/node": "npm:^20.11.19"
-    "@typescript-eslint/eslint-plugin": "npm:^7.0.2"
-    "@typescript-eslint/parser": "npm:^7.0.2"
-    "@vitejs/plugin-vue": "npm:^5.0.4"
+    "@types/luxon": "npm:^3.4.2"
+    "@types/node": "npm:^20.14.5"
+    "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
+    "@typescript-eslint/parser": "npm:^7.13.1"
+    "@vitejs/plugin-vue": "npm:^5.0.5"
     "@vue/eslint-config-typescript": "npm:^12.0.0"
-    "@vueuse/core": "npm:^10.7.2"
-    countdown: "npm:^2.6"
-    eslint: "npm:^8.56"
-    eslint-config-prettier: "npm:^9.0.0"
-    eslint-config-standard: "npm:^17.0"
-    eslint-plugin-import: "npm:^2.25"
-    eslint-plugin-n: "npm:^16.2.0"
-    eslint-plugin-promise: "npm:^6.0"
-    eslint-plugin-vue: "npm:^9.21.1"
+    "@vueuse/core": "npm:^10.11.0"
+    countdown: "npm:^2.6.0"
+    eslint: "npm:^8.57.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-config-standard: "npm:^17.1.0"
+    eslint-plugin-import: "npm:^2.29.1"
+    eslint-plugin-n: "npm:^16.6.2"
+    eslint-plugin-promise: "npm:^6.2.0"
+    eslint-plugin-vue: "npm:^9.26.0"
     husky: "npm:^9.0.11"
     less: "npm:^4.2.0"
     luxon: "npm:^3.4.4"
     prettier: "npm:^3.3.2"
-    sass: "npm:^1.56"
-    typescript: "npm:^5.2.2"
-    vite: "npm:^5.1.7"
-    vue: "npm:^3.3.6"
+    sass: "npm:^1.77.6"
+    typescript: "npm:^5.4.5"
+    vite: "npm:^5.3.1"
+    vue: "npm:^3.4.29"
   languageName: unknown
   linkType: soft
 
@@ -4032,7 +4032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.2.2":
+"typescript@npm:^5.4.5":
   version: 5.4.5
   resolution: "typescript@npm:5.4.5"
   bin:
@@ -4042,7 +4042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>":
   version: 5.4.5
   resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
   bin:
@@ -4105,7 +4105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.1.7":
+"vite@npm:^5.3.1":
   version: 5.3.1
   resolution: "vite@npm:5.3.1"
   dependencies:
@@ -4178,7 +4178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.3.6":
+"vue@npm:^3.4.29":
   version: 3.4.29
   resolution: "vue@npm:3.4.29"
   dependencies:
