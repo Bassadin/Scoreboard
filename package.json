@@ -7,9 +7,8 @@
         "vite:dev": "vite",
         "vite:build": "vue-tsc && vite build",
         "preview": "vite preview",
-        "prettier:format": "prettier --write .",
-        "eslint:scan": "eslint --ext .js,.vue,.ts src",
-        "eslint:fix": "eslint --fix --ext .js,.vue,.ts src",
+        "eslint:scan": "eslint",
+        "eslint:fix": "eslint --fix",
         "postinstall": "husky install"
     },
     "dependencies": {
@@ -19,24 +18,24 @@
         "vue": "^3.4.29"
     },
     "devDependencies": {
+        "@eslint/js": "^9.5.0",
+        "@types/eslint__js": "^8.42.3",
         "@types/luxon": "^3.4.2",
         "@types/node": "^20.14.5",
         "@typescript-eslint/eslint-plugin": "^7.13.1",
         "@typescript-eslint/parser": "^7.13.1",
         "@vitejs/plugin-vue": "^5.0.5",
-        "@vue/eslint-config-typescript": "^12.0.0",
-        "eslint": "^8.57.0",
+        "@vue/eslint-config-typescript": "^13.0.0",
+        "eslint": "^9.5.0",
         "eslint-config-prettier": "^9.1.0",
-        "eslint-config-standard": "^17.1.0",
-        "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-n": "^16.6.2",
-        "eslint-plugin-promise": "^6.2.0",
+        "eslint-plugin-prettier": "^5.1.3",
         "eslint-plugin-vue": "^9.26.0",
         "husky": "^9.0.11",
         "less": "^4.2.0",
         "prettier": "^3.3.2",
         "sass": "^1.77.6",
         "typescript": "^5.4.5",
+        "typescript-eslint": "^7.13.1",
         "vite": "^5.3.1"
     },
     "packageManager": "yarn@4.3.0"
