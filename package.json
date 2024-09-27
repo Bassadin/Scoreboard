@@ -12,7 +12,7 @@
         "postinstall": "husky install"
     },
     "dependencies": {
-        "@vueuse/core": "^10.11.0",
+        "@vueuse/core": "^11.0.0",
         "countdown": "^2.6.0",
         "luxon": "^3.4.4",
         "vue": "^3.4.29"
